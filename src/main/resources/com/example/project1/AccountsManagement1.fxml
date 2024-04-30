@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="538.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+
+    <Label prefHeight="36.0" prefWidth="506.0" text="Accounts Overview" textAlignment="CENTER">
+      <font>
+         <Font name="Britannic Bold" size="36.0" />
+      </font></Label>
+    <TableView fx:id="accountsTable" prefHeight="196.0" prefWidth="1015.0">
+        <columns>
+            <TableColumn fx:id="columnAccountId" prefWidth="381.59998166561127" text="Account ID" />
+            <TableColumn fx:id="columnBalance" minWidth="0.0" prefWidth="731.199951171875" text="Balance" />
+        </columns>
+    </TableView>
+    <Label prefHeight="18.0" prefWidth="291.0" text="Portfolio Overview">
+      <font>
+         <Font name="Britannic Bold" size="36.0" />
+      </font></Label>
+    <TableView fx:id="portfoliosTable" prefHeight="166.0" prefWidth="1015.0">
+        <columns>
+            <TableColumn fx:id="columnPortfolioId" prefWidth="484.0000427365303" text="Portfolio ID" />
+            <TableColumn fx:id="columnTotalValue" minWidth="0.0" prefWidth="328.79998779296875" text="Total Value" />
+        </columns>
+    </TableView>
+    <HBox prefHeight="130.0" prefWidth="1226.0" spacing="10">
+        <Button style="-fx-background-color: green;" text="Add Funds" textFill="WHITE" />
+        <Button prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: red;" text="Remove Funds" textFill="WHITE" />
+        <Button style="-fx-background-color: green;" text="Add Stock" textFill="WHITE" />
+        <Button prefHeight="7.0" prefWidth="91.0" style="-fx-background-color: red;" text="Remove Stock" textFill="WHITE" />
+        <TextField fx:id="amountField" promptText="Amount" />
+        <TextField fx:id="quantityField" promptText="Quantity" />
+       <HBox prefHeight="126.0" prefWidth="329.0" spacing="10">
+           <TextField fx:id="stockField" promptText="Stock Symbol" />
+       </HBox>
+    </HBox>
+</VBox>
