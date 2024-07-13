@@ -1,4 +1,6 @@
-package com.example.project1;
+package com.example.project1.model;
+
+import com.example.project1.db.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

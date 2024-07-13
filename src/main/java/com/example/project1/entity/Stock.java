@@ -1,4 +1,4 @@
-package com.example.project1;
+package com.example.project1.entity;
 
 public class Stock {
     private int stockID;
@@ -45,4 +45,3 @@ public class Stock {
         this.currentPrice = currentPrice;
     }
 }
-

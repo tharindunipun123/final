@@ -1,8 +1,10 @@
-package com.example.project1;
+package com.example.project1.entity;
 
 public class Account {
     private int accountId;
     private double balance;
+
+    public Account() {}
 
     public Account(int accountId, double balance) {
         this.accountId = accountId;
@@ -25,4 +27,3 @@ public class Account {
         this.balance = balance;
     }
 }
-

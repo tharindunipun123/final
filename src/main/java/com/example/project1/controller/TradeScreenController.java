@@ -1,9 +1,14 @@
-package com.example.project1;
+package com.example.project1.controller;
 
+import com.example.project1.bo.BOFactory;
+import com.example.project1.bo.custom.TradeBO;
+import com.example.project1.dto.TradeDTO;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+
+import java.time.LocalDate;
 
 public class TradeScreenController {
 
@@ -14,7 +19,7 @@ public class TradeScreenController {
     @FXML
     private TextField typeField; // To capture 'BUY' or 'SELL'
 
-    private TradeModel model = new TradeModel();
+    private TradeBO tradeBO = (TradeBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.TRADE);
     private int investorID = 1; // This should be dynamically set based on logged-in user
 
     @FXML
@@ -23,9 +28,10 @@ public class TradeScreenController {
         String type = typeField.getText();
         int quantity;
         try {
-            int stockID = 1; // You need to implement this method
+            int stockID = getStockIDFromSymbol(symbol);
             quantity = Integer.parseInt(quantityField.getText());
-            if (model.placeTrade(investorID, stockID, type, quantity)) {
+            TradeDTO tradeDTO = new TradeDTO(investorID, stockID, LocalDate.now(), quantity, type);
+            if (tradeBO.placeTrade(tradeDTO)) {
                 showAlert("Trade Successful", "Trade successfully placed for " + quantity + " shares of " + symbol + ".");
                 symbolField.clear();
                 quantityField.clear();
